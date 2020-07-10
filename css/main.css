@@ -45,3 +45,11 @@
     bottom: 20px;
     right: 20px;
 }
+
+@media (prefers-color-scheme: dark) {
+  #theme{ href="css/themes/[cyborg]bootstrap.min.css"; }
+}
+
+@media (prefers-color-scheme: light) {
+  #theme { href="css/themes/[cosmo]bootstrap.min.css"; }
+}
