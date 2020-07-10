@@ -1,78 +1,118 @@
 const search = document.getElementById('search');
 const matchList = document.getElementById('match-list');
+const allList = document.getElementById('all-list');
+const nrList = document.getElementById('nr-list');
+const ncList = document.getElementById('nc-list');
+
+
 
 //search rooms.json and filter it
 const searchClass = async searchText => {
     const res = await fetch('../data/rooms.json');
     const rooms = await res.json();
 
+    
+
     //get match to input
     let matches = rooms.filter(room => {
-        const regex = new RegExp(`${searchText}`,'gi');
+        const regex = new RegExp(`^${searchText}`, 'gi');
         return room.number.match(regex) || room.landmark.match(regex);
 
     });
 
-    if(searchText.length === 0){
+    if (searchText.length === 0) {
         matches = [];
-        matchList.innerHTML= '';
-
+        matchList.innerHTML = '';
     }
 
     outputHtml(matches);
 
 }
-search.addEventListener('input', () => searchClass(search.value));
+search.addEventListener('input', () => {
+    searchClass(search.value);
+
+});
 
 //show results in html
 
 const outputHtml = matches => {
-    if(matches.length > 0){
-        const html = matches.map(match => 
+    if (matches.length > 0) {
+        const html = matches.map(match =>
         `
-        <div id="root" class="container-fluid">
-            <div id="crd" class="card rounded-sm  mb-3 shadow" >
-                <div class="row">
-                    <div class="col-lg-10">
-                        <div class="row-6 ml-1 mt-1"><h4>${match.number}</h4></div>
-                        <div class="row-6 ml-1"><h6>Here's the way</h6></div>
-                    </div>
-                    <div class="col-lg-2"></div>
+        <div class="col-md-3">
+            <div class="card shadow mb-1">
+                <div class="card-body">
+                    <h4 class="card-title">${match.number}</h4>
+                    <p class="card-text">Text</p>
                 </div>
-             <div class="submenu col container-fluid bg-light d-flex flex-column justify-content-between">
-                <div class="row">
-                    <h6>Landmark: ${match.landmark}</h6>
-                </div>
-                <div class="row">
-                        <h6>Map: here</h6>
-                </div>
-                <div class="row">
-                    <iframe
-                            src="${match.map_iframe_src}"
-                            width="100%"
-                            height="450"
-                            allowfullscreen=""
-                            aria-hidden="false"
-                            onclick= "JavaScript:void(0)"
-                            sandbox="allow-scripts"
-                            style="border: 0;"
-                            tabindex="0">
-                    </iframe>
-                </div>
-                <div class="row">
-                    <h6>Directions: </h6>
-                    <hr>
-                    <a  href="${match.navigate_to}" target="_blank">
-                        <input type="button" class="btn btn-primary" value="OPEN WITH MAPS">
-                    </a>
-                </div>
-            </div>
             </div>
         </div>
         `
-        )
-        .join('');
+        ).join('');
         matchList.innerHTML = html;
-        
+
     }
 };
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', async searchText => {
+    const res = await fetch('../data/rooms.json');
+    const rooms = await res.json();
+    for (let i = 0; i < rooms.length; i++) {
+        const allHtml =
+            `
+            <div class="col-md-3">
+                <div class="card shadow mb-2">
+                    <div class="card-body">
+                        <h4 class="card-title">${rooms[i].number}</h4>
+                        <p class="card-text">Text</p>
+                    </div>
+                </div>
+            </div>
+            `;
+        allList.innerHTML += allHtml; 
+    }
+    for (let i = 0; i < rooms.length; i++) {
+        if (`${rooms[i].abbr}` === "NR") {
+            const nrHtml = 
+        `
+            <div class="col-md-3">
+                <div class="card shadow mb-2">
+                    <div class="card-body">
+                        <h4 class="card-title">${rooms[i].number}</h4>
+                        <p class="card-text">Text</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        nrList.innerHTML += nrHtml; 
+        }
+    }
+    for (let i = 0; i < rooms.length; i++) {
+        if (`${rooms[i].abbr}` === "NC") {
+            const ncHtml = 
+        `
+            <div class="col-md-3">
+                <div class="card shadow mb-2">
+                    <div class="card-body">
+                        <h4 class="card-title">${rooms[i].number}</h4>
+                        <p class="card-text">Text</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        ncList.innerHTML += ncHtml; 
+        }
+    }
+    
+}, false);
+
+
+$('#myTab a').on('click', function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+});

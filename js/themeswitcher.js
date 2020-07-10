@@ -1,8 +1,6 @@
 function switchTheme() {
     let current = document.getElementById('theme');
-    let swtchrbtn = document.getElementById('customSwitch1');
-    let ftr = document.getElementById('ftrr');
-
+    
     if (current.getAttribute('href') == 'css/themes/[cosmo]bootstrap.min.css') {
 
         current.href = 'css/themes/[cyborg]bootstrap.min.css';
