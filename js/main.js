@@ -1,3 +1,4 @@
+const DATA_URL = 'http://siddsarkar.me/data-for-mapmykgp/';
 const search = document.getElementById('search');
 const matchList = document.getElementById('match-list');
 const allList = document.getElementById('all-list');
@@ -7,7 +8,7 @@ const ncList = document.getElementById('nc-list');
 //search rooms.json and filter it
 
 const searchClass = async searchText => {
-    const res = await fetch('http://siddsarkar.me/data-for-mapmykgp/');
+    const res = await fetch(DATA_URL);
     const rooms = await res.json();
 
     //get match to input
@@ -47,7 +48,7 @@ const outputHtml = matches => {
         </div>
         `
         ).join('');
-        matchList.innerHTML = '<div class="small pl-3">Search results</div>' + html;
+        matchList.innerHTML = '<div class="small pl-3 w-100">Search results</div>' + html;
 
     }
 };
@@ -55,7 +56,7 @@ const outputHtml = matches => {
 //Tabs-lists
 
 document.addEventListener('DOMContentLoaded', async searchText => {
-    const res = await fetch('../data/rooms.json');
+    const res = await fetch(DATA_URL);
     const rooms = await res.json();
 
     //all-list
