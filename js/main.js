@@ -1,4 +1,4 @@
-const DATA_URL = 'http://siddsarkar.me/data-for-mapmykgp/';
+const DATA_URL2 = 'http://siddsarkar.me/data-for-mapmykgp/';
 const search = document.getElementById('search');
 const matchList = document.getElementById('match-list');
 const allList = document.getElementById('all-list');
