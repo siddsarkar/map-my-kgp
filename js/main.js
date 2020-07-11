@@ -49,7 +49,7 @@ const outputHtml = matches => {
         </div>
         `
         ).join('');
-        matchList.innerHTML ='<div class=small pl-3>Search results</div>' + html;
+        matchList.innerHTML ='<div class="small pl-3">Search results</div>' + html;
 
     }
 };
