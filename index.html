@@ -2,15 +2,20 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="fontawesome/css/all.css">
-  <script src="js/jquery-3.5.1.min.js"></script>
-    <link rel="stylesheet" href="styling/scrapstyles.css">
-    <link rel="stylesheet" href="css/themes/[cosmo]bootstrap.min.css" id="theme">
-    <link rel="stylesheet" href="css/main.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Map My Kgp</title>
+  <!-- resources -->
+  <link rel="stylesheet" href="css/themes/[cosmo]bootstrap.min.css" id="theme">
+  <link rel="stylesheet" href="res/fontawesome/css/all.css">
+  <script src="res/jquery-3.5.1.min.js"></script>
+
+  <!-- my-css -->
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- html-contents -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map My Kgp</title>
 </head>
+
 <body>
 
   <div id="themetoggle" onclick="switchTheme()">
@@ -18,60 +23,64 @@
   </div>
 
   <nav class="navbar navbar-light justify-content-center">
-    <a style="text-decoration: none;" href="https://facebook.com/sidking791"><i style="font-size: 1.5em;" class="fab m-1 fa-facebook"></i></a>
-    <a style="text-decoration: none;" href="https://github.com/siddsarkar"><i style="font-size: 1.5em;" class="fab m-1 fa-github"></i></a>
+    <a style="text-decoration: none;" href="https://facebook.com/sidking791"><i style="font-size: 1.5em;"
+        class="fab m-1 fa-facebook"></i></a>
+    <a style="text-decoration: none;" href="https://github.com/siddsarkar"><i style="font-size: 1.5em;"
+        class="fab m-1 fa-github"></i></a>
   </nav>
-    <div class="container">
-      
-        <h3 id="heading" class="text-center" style="font-weight: 800;">IITKGP Classroom Lookup</h3>
-        <div class="form-group">
-          <input 
-            type="text"
-            class="form-control text-center" 
-            id="search" 
-            aria-describedby="helpId" 
-            placeholder="search here">
-          <small id="helpId" class="form-tex text-muted">Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://facebook.com/sidking791">Siddharth</a></small>
-        </div>
+  <div class="container">
 
-
-        <div id="match-list" class="row"></div>
-        
-  
-        <ul class="nav nav-tabs justify-content-center text-center" id="myTab" role="tablist">
-            <li class="nav-item col-4">
-              <a class="nav-link  active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a>
-            </li>
-            <li class="nav-item col-4">
-              <a class="nav-link" id="nr-tab" data-toggle="tab" href="#nr" role="tab" aria-controls="nr" aria-selected="false">NR</a>
-            </li>
-            <li class="nav-item col-4">
-              <a class="nav-link" id="nc-tab" data-toggle="tab" href="#nc" role="tab" aria-controls="nc" aria-selected="false">NC</a>
-            </li>
-          </ul>
-          
-          <div class="tab-content">
-            <div class="tab-pane active" id="all" role="tabpanel" aria-labelledby="home-tab">
-                <div id="all-list" class="row">
-                </div>
-            </div>
-            <div class="tab-pane" id="nr" role="tabpanel" aria-labelledby="nr-tab">
-                <div id="nr-list" class="row">
-                </div>
-            </div>
-            <div class="tab-pane" id="nc" role="tabpanel" aria-labelledby="nc-tab">
-                <div id="nc-list" class="row">
-                </div>
-            </div>
-          </div>
+    <h3 id="heading" class="text-center" style="font-weight: 800;">IITKGP Classroom Lookup</h3>
+    <div class="form-group">
+      <input type="text" class="form-control text-center" id="search" aria-describedby="helpId"
+        placeholder="search here">
+      <small id="helpId" class="form-tex text-muted">Made with <i class="fa fa-heart" aria-hidden="true"></i> by <a
+          href="https://facebook.com/sidking791">Siddharth</a></small>
     </div>
 
 
+    <div id="match-list" class="row"></div>
 
-    <script src="js/main.js"></script>
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/themeswitcher.js"></script>
+
+    <ul class="nav nav-tabs justify-content-center text-center" id="myTab" role="tablist">
+      <li class="nav-item col-4">
+        <a class="nav-link  active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all"
+          aria-selected="true">All</a>
+      </li>
+      <li class="nav-item col-4">
+        <a class="nav-link" id="nr-tab" data-toggle="tab" href="#nr" role="tab" aria-controls="nr"
+          aria-selected="false">NR</a>
+      </li>
+      <li class="nav-item col-4">
+        <a class="nav-link" id="nc-tab" data-toggle="tab" href="#nc" role="tab" aria-controls="nc"
+          aria-selected="false">NC</a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="all" role="tabpanel" aria-labelledby="home-tab">
+        <div id="all-list" class="row">
+        </div>
+      </div>
+      <div class="tab-pane" id="nr" role="tabpanel" aria-labelledby="nr-tab">
+        <div id="nr-list" class="row">
+        </div>
+      </div>
+      <div class="tab-pane" id="nc" role="tabpanel" aria-labelledby="nc-tab">
+        <div id="nc-list" class="row">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- my scripts -->
+  <script src="js/themeswitcher.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- resources -->
+  <script src="res/jquery-3.5.1.min.js"></script>
+  <script src="res/bootstrap/js/bootstrap.js"></script>
+
 </body>
 
 </html>
