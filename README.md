@@ -6,4 +6,6 @@
   * about
   * theme
   * social icons
+* Desktop/mobile version toggle
+
 
