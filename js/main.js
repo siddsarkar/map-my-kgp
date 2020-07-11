@@ -7,7 +7,7 @@ const ncList = document.getElementById('nc-list');
 //search rooms.json and filter it
 
 const searchClass = async searchText => {
-    const res = await fetch('../data/rooms.json');
+    const res = await fetch('http://siddsarkar.me/map-my-kgp/data/rooms.json');
     const rooms = await res.json();
 
     //get match to input
