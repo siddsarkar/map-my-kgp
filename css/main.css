@@ -46,3 +46,16 @@
 	cursor: pointer;
 	box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
 }
+
+#app-icon{
+	animation: icon 1s;
+}
+
+@keyframes icon {
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
