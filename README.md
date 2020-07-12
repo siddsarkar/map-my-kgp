@@ -10,5 +10,7 @@
 * Dynamic app logo
 * Preloaders
 * Dark theme pallete
+* Integrate recent searches
+
 
 
