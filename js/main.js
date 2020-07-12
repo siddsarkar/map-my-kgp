@@ -1,4 +1,4 @@
-const DATA_URL2 = 'http://siddsarkar.me/data-for-mapmykgp/';
+const DATA_URL = 'http://siddsarkar.me/data-for-mapmykgp/';
 const search = document.getElementById('search');
 const matchList = document.getElementById('match-list');
 const allList = document.getElementById('all-list');
@@ -7,37 +7,37 @@ const ncList = document.getElementById('nc-list');
 
 //search rooms.json and filter it
 
-const searchClass = async searchText => {
-    const res = await fetch(DATA_URL);
-    const rooms = await res.json();
+const searchClass = async (searchText) => {
+	const res = await fetch(DATA_URL);
+	const rooms = await res.json();
 
-    //get match to input
+	//get match to input
 
-    let matches = rooms.filter(room => {
-        const regex = new RegExp(`^${searchText}`, 'gi');
-        return room.number.match(regex) || room.landmark.match(regex);
+	let matches = rooms.filter((room) => {
+		const regex = new RegExp(`^${searchText}`, 'gi');
+		return room.number.match(regex) || room.landmark.match(regex);
+	});
 
-    });
+	if (searchText.length === 0) {
+		matches = [];
+		matchList.innerHTML = '';
+	}
 
-    if (searchText.length === 0) {
-        matches = [];
-        matchList.innerHTML = '';
-    }
-
-    outputHtml(matches);
-}
+	outputHtml(matches);
+};
 
 search.addEventListener('input', () => {
-    searchClass(search.value);
-
+	searchClass(search.value);
 });
 
 //show results in html
 
-const outputHtml = matches => {
-    if (matches.length > 0) {
-        const html = matches.map(match =>
-        `
+const outputHtml = (matches) => {
+	if (matches.length > 0) {
+		const html = matches
+			.map(
+				(match) =>
+					`
         <div class="col-md-3">
             <div class="card shadow mb-1">
                 <div class="card-body">
@@ -47,22 +47,23 @@ const outputHtml = matches => {
             </div>
         </div>
         `
-        ).join('');
-        matchList.innerHTML = '<div class="small pl-3 w-100">Search results</div>' + html;
-
-    }
+			)
+			.join('');
+		matchList.innerHTML = '<div class="small pl-3 w-100">Search results</div>' + html;
+	}
 };
 
 //Tabs-lists
 
-document.addEventListener('DOMContentLoaded', async searchText => {
-    const res = await fetch(DATA_URL);
-    const rooms = await res.json();
+document.addEventListener(
+	'DOMContentLoaded',
+	async (searchText) => {
+		const res = await fetch(DATA_URL);
+		const rooms = await res.json();
 
-    //all-list
-    for (let i = 0; i < rooms.length; i++) {
-        const allHtml =
-        `
+		//all-list
+		for (let i = 0; i < rooms.length; i++) {
+			const allHtml = `
         <div class="col-md-3">
             <div class="card shadow mb-2">
                 <div class="card-body">
@@ -72,14 +73,13 @@ document.addEventListener('DOMContentLoaded', async searchText => {
             </div>
         </div>
         `;
-        allList.innerHTML += allHtml;
-    }
+			allList.innerHTML += allHtml;
+		}
 
-    //nr-list
-    for (let i = 0; i < rooms.length; i++) {
-        if (`${rooms[i].abbr}` === "NR") {
-            const nrHtml =
-            `
+		//nr-list
+		for (let i = 0; i < rooms.length; i++) {
+			if (`${rooms[i].abbr}` === 'NR') {
+				const nrHtml = `
             <div class="col-md-3">
                 <div class="card shadow mb-2">
                     <div class="card-body">
@@ -89,15 +89,14 @@ document.addEventListener('DOMContentLoaded', async searchText => {
                 </div>
             </div>
             `;
-            nrList.innerHTML += nrHtml;
-        }
-    }
+				nrList.innerHTML += nrHtml;
+			}
+		}
 
-    //nc-list
-    for (let i = 0; i < rooms.length; i++) {
-        if (`${rooms[i].abbr}` === "NC") {
-            const ncHtml =
-            `
+		//nc-list
+		for (let i = 0; i < rooms.length; i++) {
+			if (`${rooms[i].abbr}` === 'NC') {
+				const ncHtml = `
             <div class="col-md-3">
                 <div class="card shadow mb-2">
                     <div class="card-body">
@@ -107,15 +106,16 @@ document.addEventListener('DOMContentLoaded', async searchText => {
                 </div>
             </div>
             `;
-            ncList.innerHTML += ncHtml;
-        }
-    }
-
-}, false);
+				ncList.innerHTML += ncHtml;
+			}
+		}
+	},
+	false
+);
 
 //bootstrap-nav-tabs
 
-$('#myTab a').on('click', function (e) {
-    e.preventDefault()
-    $(this).tab('show')
+$('#myTab a').on('click', function(e) {
+	e.preventDefault();
+	$(this).tab('show');
 });
