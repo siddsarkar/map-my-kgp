@@ -11,6 +11,7 @@
 * Preloaders
 * Dark theme pallete
 * Integrate recent searches
+* Favicon for page
 
 
 
