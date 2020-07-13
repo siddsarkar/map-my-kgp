@@ -43,3 +43,8 @@
 		opacity: 1;
 	}
 }
+@media only screen and (max-width: 600px) {
+}
+.container-fluid {
+	padding: 0 !important;
+}

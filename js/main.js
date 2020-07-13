@@ -39,10 +39,10 @@ const outputHtml = (matches) => {
                     <div class="col-lg-2"></div>
                 </div>
              <div class="submenu col container-fluid bg-light d-flex flex-column justify-content-between">
-                <div class="row">
+                <div class="row pl-3">
                     <h6>Landmark: ${match.landmark}</h6>
                 </div>
-                <div class="row">
+                <div class="row pl-3">
                         <h6>Map: here</h6>
                 </div>
                 <div class="row">
@@ -58,7 +58,7 @@ const outputHtml = (matches) => {
                             tabindex="0">
                     </iframe>
                 </div>
-                <div class="row">
+                <div class="row pl-3">
                     <h6>Directions: </h6>
                     <hr>
                     <a  href="${match.navigate_to}" target="_blank">
