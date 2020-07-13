@@ -1,12 +1,45 @@
-*{
-    font-family: montserrat;
+* {
+	font-family: montserrat;
 }
 
 .footer {
-    bottom: 0;
+	bottom: 0;
 }
 
-.row{
-    margin-right: 0px;
-    margin-left: 0px;
+.row {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+#themetoggle {
+	z-index: 1;
+
+	background-color: #1b1b1b;
+	color: white;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+
+	cursor: pointer;
+	box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+#app-icon {
+	animation: icon 1s;
+}
+
+@keyframes icon {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="css/fontawesome/css/all.css">
     <link rel="stylesheet" href="styling/scrapstyles.css">
     <link rel="stylesheet" href="css/themes/[cosmo]bootstrap.min.css" id="theme">
     <link rel="stylesheet" href="css/main.css">
@@ -9,21 +10,20 @@
     <title>Map My Kgp</title>
 </head>
 <body>
+  <div id="themetoggle" onclick="switchTheme()">
+    <div id="themetoggle-icon" style="font-size: 2em;" class="fas fa-adjust"></div>
+  </div>
 
 
     <div class="conatiner mt-5">
         <div class="row">
             <div class="col-lg-6 m-auto">
+              <nav class="navbar navbar-light justify-content-center">
+                <img id="app-icon" src="icons/app_icon_dark.png" alt="app-logo" style="width: auto; height: 120px;">
+              </nav>
                 <h3 class="text-center mb-3" style="overflow: hidden;">
-                   🔎 IITKGP Classroom/Departments Lookup 🔎
+                   IITKGP Classroom Lookup
                 </h3>
-<!--                <div class="form-group mt-5">-->
-<!--                    <input -->
-<!--                    id="search" -->
-<!--                    placeholder="Enter ClassRoom Number" -->
-<!--                    type="text" -->
-<!--                    class="form-control form-control-lg">-->
-<!--                </div>-->
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">#</span>
@@ -41,7 +41,6 @@
 
                 Made with ❤ by Siddharth <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="customSwitch1" onchange="switchTheme()">
-                <label class="custom-control-label" for="customSwitch1">Dark Theme</label>
             </div>
             </div>
         </div>
