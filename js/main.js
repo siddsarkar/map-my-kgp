@@ -2,34 +2,33 @@ const search = document.getElementById('search');
 const matchList = document.getElementById('match-list');
 
 //search rooms.json and filter it
-const searchClass = async searchText => {
-    const res = await fetch('http://siddsarkar.me/data/index.json');
-    const rooms = await res.json();
+const searchClass = async (searchText) => {
+	const res = await fetch('http://siddsarkar.me/data-for-mapmykgp/');
+	const rooms = await res.json();
 
-    //get match to input
-    let matches = rooms.filter(room => {
-        const regex = new RegExp(`${searchText}`,'gi');
-        return room.number.match(regex) || room.landmark.match(regex);
+	//get match to input
+	let matches = rooms.filter((room) => {
+		const regex = new RegExp(`${searchText}`, 'gi');
+		return room.number.match(regex) || room.landmark.match(regex);
+	});
 
-    });
+	if (searchText.length === 0) {
+		matches = [];
+		matchList.innerHTML = '';
+	}
 
-    if(searchText.length === 0){
-        matches = [];
-        matchList.innerHTML= '';
-
-    }
-
-    outputHtml(matches);
-
-}
+	outputHtml(matches);
+};
 search.addEventListener('input', () => searchClass(search.value));
 
 //show results in html
 
-const outputHtml = matches => {
-    if(matches.length > 0){
-        const html = matches.map(match => 
-        `
+const outputHtml = (matches) => {
+	if (matches.length > 0) {
+		const html = matches
+			.map(
+				(match) =>
+					`
         <div id="root" class="container-fluid">
             <div id="crd" class="card rounded-sm  mb-3 shadow" >
                 <div class="row">
@@ -70,9 +69,8 @@ const outputHtml = matches => {
             </div>
         </div>
         `
-        )
-        .join('');
-        matchList.innerHTML = html;
-        
-    }
+			)
+			.join('');
+		matchList.innerHTML = html;
+	}
 };
