@@ -8,11 +8,11 @@ function switchTheme() {
 		current.href = 'css/themes/[cyborg]bootstrap.min.css';
 		swtchrbtn.style.backgroundColor = 'white';
 		toggleIcon.style.color = '#1b1b1b';
-		appIcon.src = 'icons/app_icon_light.png';
+		appIcon.src = 'icons/app_icon_dark.png';
 	} else {
 		current.href = 'css/themes/[cosmo]bootstrap.min.css';
 		swtchrbtn.style.backgroundColor = '#1b1b1b';
 		toggleIcon.style.color = 'white';
-		appIcon.src = 'icons/app_icon_dark.png';
+		appIcon.src = 'icons/app_icon_light.png';
 	}
 }
