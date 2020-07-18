@@ -3,7 +3,7 @@ const matchList = document.getElementById('match-list');
 
 //search rooms.json and filter it
 const searchClass = async (searchText) => {
-	const res = await fetch('http://siddsarkar.me/data-for-mapmykgp/');
+	const res = await fetch('https://siddsarkar.github.io/data-for-mapmykgp/');
 	const rooms = await res.json();
 
 	//get match to input
