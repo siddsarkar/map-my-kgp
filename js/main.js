@@ -17,7 +17,7 @@ const searchClass = async (searchText) => {
 		matchList.innerHTML = '';
 	}
 
-	outputHtml(matches[4]);
+	outputHtml(matches.slice(0,6));
 };
 search.addEventListener('input', () => searchClass(search.value));
 
